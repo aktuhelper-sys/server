@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personal_query_answers",
+  "info": {
+    "singularName": "personal-query-answer",
+    "pluralName": "personal-query-answers",
+    "displayName": "personal-query-answer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "answerText": {
+      "type": "text"
+    },
+    "personal_query": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::personal-query.personal-query",
+      "inversedBy": "personal_query_answers"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "personal_query_answers"
+    },
+    "isBestAnswer": {
+      "type": "boolean",
+      "default": false
+    },
+    "helpfulCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "voters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::voter.voter",
+      "inversedBy": "personal_query_answers"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers",
+  "info": {
+    "singularName": "answer",
+    "pluralName": "answers",
+    "displayName": "answer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "answerText": {
+      "type": "text"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "answers"
+    },
+    "query": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::query.query",
+      "inversedBy": "answers"
+    },
+    "isBestAnswer": {
+      "type": "boolean",
+      "default": false
+    },
+    "voters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::voter.voter",
+      "mappedBy": "answer"
+    },
+    "helpfulCount": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

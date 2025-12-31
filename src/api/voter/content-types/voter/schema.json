@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "voters",
+  "info": {
+    "singularName": "voter",
+    "pluralName": "voters",
+    "displayName": "voter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "voters"
+    },
+    "personal_query_answers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::personal-query-answer.personal-query-answer",
+      "mappedBy": "voters"
+    },
+    "answer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::answer.answer",
+      "inversedBy": "voters"
+    }
+  }
+}

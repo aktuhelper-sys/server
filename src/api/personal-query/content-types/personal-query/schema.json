@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personal_queries",
+  "info": {
+    "singularName": "personal-query",
+    "pluralName": "personal-queries",
+    "displayName": "personal-query"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "academics",
+        "career",
+        "college-life",
+        "General Query"
+      ]
+    },
+    "fromUser": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "sentPersonalQueries"
+    },
+    "toUser": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "receivedPersonalQueries"
+    },
+    "isRead": {
+      "type": "boolean",
+      "default": true
+    },
+    "readAt": {
+      "type": "datetime"
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "personal_query_answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::personal-query-answer.personal-query-answer",
+      "mappedBy": "personal_query"
+    },
+    "attachment": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

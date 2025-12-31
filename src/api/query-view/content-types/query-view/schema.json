@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "query_views",
+  "info": {
+    "singularName": "query-view",
+    "pluralName": "query-views",
+    "displayName": "query-view"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "query": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::query.query",
+      "inversedBy": "query_views"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "query_views"
+    },
+    "viewedAt": {
+      "type": "datetime"
+    }
+  }
+}

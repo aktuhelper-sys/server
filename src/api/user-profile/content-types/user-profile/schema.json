@@ -1,0 +1,194 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_profiles",
+  "info": {
+    "singularName": "user-profile",
+    "pluralName": "user-profiles",
+    "displayName": "user-profile"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "profilePic": {
+      "type": "text",
+      "required": false
+    },
+    "college": {
+      "type": "text",
+      "required": true
+    },
+    "course": {
+      "type": "string",
+      "required": true
+    },
+    "branch": {
+      "type": "string",
+      "required": false
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "interests": {
+      "type": "json",
+      "required": true
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "bio": {
+      "type": "text"
+    },
+    "bannerUrl": {
+      "type": "text"
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "isMentor": {
+      "type": "boolean",
+      "default": false
+    },
+    "enrollmentYear": {
+      "type": "integer"
+    },
+    "graduationYear": {
+      "type": "integer"
+    },
+    "linkedinUrl": {
+      "type": "text"
+    },
+    "githubUrl": {
+      "type": "text"
+    },
+    "portfolioUrl": {
+      "type": "text"
+    },
+    "twitterUrl": {
+      "type": "text"
+    },
+    "leetcodeUrl": {
+      "type": "text"
+    },
+    "instagramUrl": {
+      "type": "text"
+    },
+    "queriesAsked": {
+      "type": "integer",
+      "default": 0
+    },
+    "totalAnswersGiven": {
+      "type": "integer",
+      "default": 0
+    },
+    "helpfulCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "totalViews": {
+      "type": "integer"
+    },
+    "verification_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::verification-request.verification-request",
+      "mappedBy": "user_profile"
+    },
+    "verification_request": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::verification-request.verification-request",
+      "inversedBy": "user_profil"
+    },
+    "queries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::query.query",
+      "mappedBy": "user_profile"
+    },
+    "superMentor": {
+      "type": "boolean",
+      "default": false
+    },
+    "eliteMentor": {
+      "type": "boolean",
+      "default": false
+    },
+    "activeParticipant": {
+      "type": "boolean",
+      "default": false
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "user_profile"
+    },
+    "voters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::voter.voter",
+      "mappedBy": "user_profile"
+    },
+    "query_views": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::query-view.query-view",
+      "mappedBy": "user_profile"
+    },
+    "sentPersonalQueries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::personal-query.personal-query",
+      "mappedBy": "fromUser"
+    },
+    "receivedPersonalQueries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::personal-query.personal-query",
+      "mappedBy": "toUser"
+    },
+    "personal_query_answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::personal-query-answer.personal-query-answer",
+      "mappedBy": "user_profile"
+    },
+    "totalQueries": {
+      "type": "integer",
+      "default": 0
+    },
+    "bestAnswers": {
+      "type": "integer",
+      "default": 0
+    },
+    "helpfulVotes": {
+      "type": "integer"
+    }
+  }
+}
