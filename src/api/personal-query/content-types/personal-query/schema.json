@@ -64,6 +64,15 @@
         "videos",
         "audios"
       ]
+    },
+    "amount_paise": {
+      "type": "integer"
+    },
+    "deadline_hours": {
+      "type": "integer"
+    },
+    "deadline_label": {
+      "type": "string"
     }
   }
 }

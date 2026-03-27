@@ -555,6 +555,7 @@ export interface ApiPersonalQueryPersonalQuery
     draftAndPublish: true;
   };
   attributes: {
+    amount_paise: Schema.Attribute.Integer;
     attachment: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -564,6 +565,8 @@ export interface ApiPersonalQueryPersonalQuery
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    deadline_hours: Schema.Attribute.Integer;
+    deadline_label: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     fromUser: Schema.Attribute.Relation<
       'manyToOne',
