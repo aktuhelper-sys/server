@@ -77,9 +77,6 @@
     "razorpay_order_id": {
       "type": "string"
     },
-    "query_status": {
-      "type": "string"
-    },
     "razorpay_payment_id": {
       "type": "string"
     },
@@ -87,6 +84,46 @@
       "type": "string"
     },
     "deadline_at": {
+      "type": "datetime"
+    },
+    "accept_deadline": {
+      "type": "datetime"
+    },
+    "transfer_done": {
+      "type": "boolean",
+      "default": false
+    },
+    "answered_at": {
+      "type": "datetime"
+    },
+    "settlement_type": {
+      "type": "enumeration",
+      "enum": [
+        "accepted",
+        "rejected",
+        "expired",
+        "auto_accepted"
+      ]
+    },
+    "transfer_id": {
+      "type": "string"
+    },
+    "refund_id": {
+      "type": "string"
+    },
+    "transactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "personal_query"
+    },
+    "query_status": {
+      "type": "string"
+    },
+    "review_deadline_at": {
+      "type": "datetime"
+    },
+    "processing_started_at": {
       "type": "datetime"
     }
   }

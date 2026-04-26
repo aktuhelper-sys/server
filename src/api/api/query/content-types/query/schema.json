@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "queries",
+  "info": {
+    "singularName": "query",
+    "pluralName": "queries",
+    "displayName": "query"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "academics",
+        "career",
+        "college-life",
+        "general"
+      ]
+    },
+    "visibility": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "public",
+        "college",
+        "branch",
+        "seniors"
+      ]
+    },
+    "isAnonymous": {
+      "type": "boolean",
+      "default": false
+    },
+    "viewCount": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "answerCount": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "attachments": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "queries"
+    },
+    "quesstatus": {
+      "type": "enumeration",
+      "default": "active",
+      "enum": [
+        "pending",
+        "active",
+        "resolved",
+        "closed"
+      ]
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "query"
+    },
+    "query_views": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::query-view.query-view",
+      "mappedBy": "query"
+    }
+  }
+}

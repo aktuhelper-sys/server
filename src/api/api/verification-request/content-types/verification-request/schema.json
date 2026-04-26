@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "verification_requests",
+  "info": {
+    "singularName": "verification-request",
+    "pluralName": "verification-requests",
+    "displayName": "verification-request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "verification_requests"
+    },
+    "document": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "statuss": {
+      "type": "enumeration",
+      "default": "pending ",
+      "enum": [
+        "pending ",
+        "approved ",
+        "rejected"
+      ]
+    },
+    "submittedAt": {
+      "type": "datetime",
+      "default": "2025-11-27T18:30:00.000Z"
+    },
+    "reviewedAt": {
+      "type": "datetime"
+    },
+    "user_profil": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-profile.user-profile",
+      "mappedBy": "verification_request"
+    },
+    "rejectionReason": {
+      "type": "text"
+    }
+  }
+}

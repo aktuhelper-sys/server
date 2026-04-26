@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payout_accounts",
+  "info": {
+    "singularName": "payout-account",
+    "pluralName": "payout-accounts",
+    "displayName": "payout-account"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "accountHolderName": {
+      "type": "string",
+      "required": true
+    },
+    "accountType": {
+      "type": "enumeration",
+      "enum": [
+        "upi",
+        "bank"
+      ]
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "payout_accounts"
+    },
+    "upiId": {
+      "type": "string"
+    },
+    "isPartner": {
+      "type": "boolean"
+    }
+  }
+}
