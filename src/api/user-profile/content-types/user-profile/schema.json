@@ -189,6 +189,31 @@
     },
     "helpfulVotes": {
       "type": "integer"
+    },
+    "razorpay_account_id": {
+      "type": "string"
+    },
+    "payout_accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout-account.payout-account",
+      "mappedBy": "user_profile"
+    },
+    "isPartner": {
+      "type": "boolean",
+      "default": false
+    },
+    "sentTransactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "fromUser"
+    },
+    "receivedTransactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "toUser"
     }
   }
 }
